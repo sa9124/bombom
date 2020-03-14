@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 1. js info 7
+2. 메모장 디자인 (디자이너라면?)
+3. 메모장 기능 : 클릭했을 때 삭제..!(각각) -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(-45deg, #790bd2, #23a6d5, #23d5ab);
+            background-size: 1200% 1200%;
+            animation: gradient 10s ease infinite;
+            padding: 30px; 
+            background-repeat: no-repeat;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .sa {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #aaa;
+            background: white;
+            width:100%; 
+        }
+
+        .button1 {
+            width: 100px;
+            padding: 5px;
+
+            background-color: white;
+            color: black;
+            font-size: 15px;
+            margin-top: 20px;
+
+
+        }
+
+        #button2 {
+            margin-left: 40px;
+            width: 80px;
+            padding: 5px;
+            background-color: #fff;
+            font-size: 10px;
+
+
+        }
+        
+        .wrap {
+            position: relative; 
+        }
+
+#memo{
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    margin-top: 10px;
+    height: 309px;
+    border:1px solid #aaa; 
+    width:500px;
+}
+        #input {
+
+            margin: 0 auto;
+            width: 200px;
+            padding: 10px;
+        } 
+    </style>
+    <script>
+        // append , template string ${} append
+        let text = [];
+
+        let id = 1;
+        const go = () => {
+            let a = `${document.getElementById("input").value}<button id="button2" onclick = "dele(${id})">Delete</button>`
+            let parentmemo = document.getElementById('memo');
+            let newListItem = document.createElement('div');
+            newListItem.setAttribute("id",`sa-${id}`);
+            newListItem.setAttribute("class","sa");
+
+
+            newListItem.innerHTML= a;
+            parentmemo.appendChild(newListItem);
+            id++
+        }
+
+        const reset = () => {
+            document.getElementById("memo").innerHTML = "";
+            text = [""]
+        }
+        const dele = (del_id) => {
+            console.log(id)
+            const element = document.getElementById("sa-" + del_id);
+            element.parentNode.removeChild(element);
+
+            // text= [""]
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="memo">
+    </div>
+    <div class="wrap"> 
+        <input type="text" name="memo" id="input" placeholder="입력하세요">
+        <br>
+        <button class="button1" onclick=go()>confirm</button>
+        <button class="button1" onclick=reset()>reset</button>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>공움직이기</title>
+</head>
+<script>
+    window.onload = () => { 
+        const circle = document.getElementById('circle');
+        const circle2 = document.getElementsByClassName('circle2')[0];
+        const circle3 = document.getElementsByClassName('circle3')[0];
+        const circle4 = document.getElementsByClassName('circle4')[0];
+        const ani = (a) => {
+            let cnt =3; 
+            setInterval(() => {
+                a.style.left = `${cnt}px`;
+                cnt += 3;
+            }, 50)
+        }
+        const ani2 = (a) => {
+            let cnt = 0; 
+            let flag = 1; 
+            let isTurn = 0;  
+            setInterval(() => { 
+                a.style.left=`${cnt}px`
+                a.style.top=`${cnt}px`
+
+                cnt += 3*Math.random()*flag
+
+                if(isTurn==0 && cnt>=window.innerHeight - a.offsetHeight){
+                    isTurn=-1;
+                    flag *= -1;
+                }
+                if(!isTurn == 0 && cnt<=0){
+                    isTurn = 0;
+                    flag *= -1;
+                }
+            }, 10)
+        }
+        ani2(circle)
+        // ani(circle2)
+        // ani(circle3)
+        // ani(circle4)
+    
+    }
+</script>
+<style>
+    body{
+        position: relative;
+        width:100vw; 
+        height: 100vh;
+    }
+    .circle {
+        position: absolute;
+        top:0; 
+        left: 0; 
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: transparent linear-gradient(180deg, #A32CDF 0%, #106AD2 100%) 0% 0% no-repeat padding-box;
+        opacity: 0.77;
+    }
+
+    .circle2 {
+        position: absolute;
+        top:0; 
+        right: 0; 
+        width: 683px;
+        height: 682px;
+        background: transparent linear-gradient(46deg, #00C0FF 0%, #4218B8 100%) 0% 0% no-repeat padding-box;
+        opacity: 0.77;
+        border-radius: 50%;
+    }
+
+    .circle3 {
+        position: absolute;
+        bottom:0; 
+        left:0; 
+        width: 300px;
+        height: 300px;
+        transform: matrix(-0.97, 0.26, -0.26, -0.97, 0, 0);
+        background: transparent linear-gradient(46deg, #00C0FF 0%, #4218B8 100%) 0% 0% no-repeat padding-box;
+        opacity: 0.77;
+        border-radius: 50%;
+    }
+
+    .circle4 {
+        position: absolute;
+        bottom:0; 
+        right:0; 
+        width: 400px;
+        height: 400px;
+        background: transparent linear-gradient(180deg, #0D4DFF 0%, #00FFA9 100%) 0% 0% no-repeat padding-box;
+        opacity: 0.77;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <div class="circle" id ="circle">
+
+    </div> 
+    <div class="circle2">
+
+    </div>
+    <div class="circle3">
+
+    </div>
+    <div class="circle4">
+
+    </div> 
+</body>
+
+</html>

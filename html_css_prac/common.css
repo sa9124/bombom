@@ -1,0 +1,176 @@
+
+    body,
+    div,
+    p,
+    ul,
+    ol,
+    li,
+    dl,
+    dt,
+    dd,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    table,
+    tr,
+    th,
+    td,
+    form,
+    fieldset,
+    legend,
+    input,
+    label,
+    select,
+    textarea,
+    button {
+        margin: 0;
+        padding: 0;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 12px;
+        font-family: hcR, "돋움", dotum, sans-serif;
+        color: #333;
+        line-height: 1;
+    }
+
+    ul,
+    li,
+    ol {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    img,
+    fieldset {
+        border: none;
+        vertical-align: middle;
+    }
+
+    em {
+        font-weight: norma;
+        font-style: normal;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+        cursor: poiniter;
+    }
+
+
+
+    li img,
+    dd img {
+        vertical-align: top;
+    }
+
+    body {
+        background: #666;
+        font: 13px/1.5 "굴림"
+    }
+
+    #wrapper {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    #header {
+        background: #eee;
+    }
+
+    h1 {
+        font: bold 30px "휴먼모음T";
+        color: #cc0;
+        background: #123456;
+        padding: 10px;
+        text-align: center;
+    }
+
+    h1 strong {
+        font-size: 300%;
+        color: #ffd;
+    }
+
+    h1 span {
+        font-size: 150%;
+    }
+
+    h1 em {
+        font-style: normal;
+        font-size: 200%;
+        color: #ccc;
+    }
+
+    #container {
+        position: relative;
+        width: 100%;
+        background: #ccc;
+    }
+
+    #menu {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 150px;
+        padding: 20px;
+    }
+
+    #menu li {
+        padding: 5px 0;
+    }
+
+    #menu li a {
+        color: #000;
+    }
+
+    #menu li a:hover {
+        color: #662;
+        border-bottom: 1px dashed #662;
+    }
+
+    #content {
+        position: relative;
+        left: 200px;
+        width: 600px;
+        background: #fff;
+    }
+
+    p {
+        padding: 20px;
+        text-align: justify;
+    }
+
+    h2 {
+        padding: 10px 20px;
+        font: bold 25px;
+        font-family:"궁서";
+        color: #ee0;
+    }
+
+    #footer {
+        background: #aaa;
+    }
+
+    address {
+        font-style: normal;
+        padding: 10px 20px;
+        color: #000;
+    }

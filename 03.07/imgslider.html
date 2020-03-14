@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0; list-style: none;}
+        .wrap{width:100%;}
+        .nav > ul > li > img{
+            display:block;
+         margin:0 auto;}
+            .unshow{
+                display: none;
+            }
+            .show{
+                display: block;
+            } 
+    </style> 
+    <script>
+    let id = 1; 
+    const next = () =>{ 
+        const a = document.getElementsByClassName("unshow"); 
+        a[(id - 1)].classList.remove('show')
+        a[id].classList.add('show') 
+        id++; 
+    }
+    const init = () =>{
+        const a = document.getElementsByClassName("unshow"); 
+        a[0].classList.add('show')
+    }
+    window.onload = () =>{
+        init()
+    }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class = "nav">
+            <ul>
+                <li class="unshow"><img src="slide1.jpg"></li>
+                <li class="unshow"><img src="slide2.jpg"></li>
+                <li class="unshow"><img src="slide3.jpg"></li>
+            </ul> 
+            <button >◁</button>
+            <button onclick="next()">▷</button>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

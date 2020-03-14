@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>옵션선택</title>
+</head>
+<body>
+    <form action="boad.php" method="post">
+        <fieldset>
+           <legend>여러 줄 글상자와 목록상자</legend>
+           <p> 답글 <br/>
+                <textarea cols ="30" rows="3" name="reply"></textarea>
+           </p>
+           <p> 과목선택
+               <select>
+                   <option value="html">html</option>
+                   <option value="css">css</option>
+                   <option value="javascript">javascript</option>
+                   <option value="jquery">jquery</option>
+               </select>
+           </p>
+           <p>스터디지역
+                <select>
+                    <optgroup label = "관악구">
+                        <option value="봉천동">봉천동</option>
+                        <option  value="신림동">신림동</option>
+                        <option value="미성동">미성동</option>
+                    </optgroup>
+                    <optgroup label="강남구">
+                        <option value="방배동">방배동</option>
+                        <option value ="서초동">서초동</option>
+                        <option value="대치동">대치동</option>
+                    </optgroup>
+                </select>
+
+           </p>
+        </fieldset>
+    </form>
+    
+</body>
+</html>

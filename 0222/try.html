@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #memo{font-size: 20;
+    background-color:blue;
+    color:#fff;}
+    </style>
+    <script>
+        // append , template string ${} 
+        let text = ""
+        window.onload = () =>{
+
+            const sa = document.getElementById("sa") 
+        sa.addEventListener("click", go)
+        } 
+        const go = () => { 
+            let value = document.getElementById("input").value; 
+            let a = ""; 
+            if(value){
+                a = `<div>${document.getElementById("input").value}</div>`
+            } 
+
+            text = a + text; 
+            document.getElementById("memo").innerHTML = text 
+            error();
+        }
+        window.onload 
+
+        const reset=()=>{
+            document.getElementById("memo").innerHTML ="";
+            text = ""
+        } 
+
+        const error =()=>{
+            try {
+                console.log(text)
+                if(text == ""){
+                    alert("ok")
+                }
+                throw new Error("새봄님!!!!")
+            } catch (error) {
+                alert(error)
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="memo">
+
+    </div>
+    <input type="text" name="memo" id="input">
+    <button id="sa">입력</button>
+    <button onclick=reset()>reset</button>
+</body>
+
+</html>

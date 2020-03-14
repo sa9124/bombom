@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>공움직이기</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+</head>
+<script>
+    window.onload = () => { 
+        const circle = document.getElementById('circle');
+        const circle2 = document.getElementsByClassName('circle2')[0];
+        const circle3 = document.getElementsByClassName('circle3')[0];
+        const circle4 = document.getElementsByClassName('circle4')[0]; 
+        const ani2 = (a, dir1, dir2, time) => {
+ 
+        
+            let init_dir1;
+            let init_dir2; 
+             if(dir1=='left'){
+                init_dir1 = a.offsetLeft || 0
+            } 
+            if(dir1=='right'){
+                init_dir1 = a.offsetRight || 0; 
+            }
+            if(dir2=='top'){
+                init_dir2 =a.offsetTop || 0; 
+            } 
+            
+            if(dir2=='bottom'){
+                init_dir2 = a.offsetBottom || 0;
+
+            } 
+            let flag = 1;  
+            setInterval(() => { 
+                a.style[dir1]=`${init_dir1}px`
+                a.style[dir2]=`${init_dir2}px`
+                init_dir1 += 3*flag
+                init_dir2 += 3* flag 
+                if(init_dir1 >= window.innerWidth || init_dir2 >= window.innerHeight || init_dir1<=0 || init_dir2<=0) flag *= -1; 
+            }, time )
+            
+        } 
+        ani2(circle, 'left', 'top',20) 
+        ani2(circle2, 'right', 'top',30)
+        ani2(circle3, 'left','bottom',10)
+        ani2(circle4, 'right', 'bottom',40)
+        // ani(circle3)
+        // ani(circle4)
+    
+    }
+</script>
+<style>
+    body{
+        position: relative;
+        width:100vw; 
+        height: 100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-family :'Nanum Myeongjo',Arial, Helvetica, sans-serif
+    }
+    .circle {
+        position: absolute;
+        top:0; 
+        left: 0; 
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: transparent linear-gradient(180deg, #A32CDF 0%, #106AD2 100%) 0% 0% no-repeat padding-box;
+        opacity: 0.77;
+    }
+
+    .circle2 {
+        position: absolute;
+        top:0; 
+        right: 0; 
+        width: 400px;
+        height: 400px;
+        background: transparent linear-gradient(46deg, #00C0FF 0%, #4218B8 100%) 0% 0% no-repeat padding-box;
+        opacity: 0.77;
+        border-radius: 50%;
+    }
+
+    .circle3 {
+        position: absolute;
+        bottom:0; 
+        left:0; 
+        width: 300px;
+        height: 300px;
+        transform: matrix(-0.97, 0.26, -0.26, -0.97, 0, 0);
+        background: transparent linear-gradient(46deg, #00C0FF 0%, #4218B8 100%) 0% 0% no-repeat padding-box;
+        opacity: 0.77;
+        border-radius: 50%;
+    }
+
+    .circle4 {
+        position: absolute;
+        bottom:0; 
+        right:0; 
+        width: 400px;
+        height: 400px;
+        background: transparent linear-gradient(180deg, #0D4DFF 0%, #00FFA9 100%) 0% 0% no-repeat padding-box;
+        opacity: 0.77;
+        border-radius: 50%;
+    }
+
+    .centerbox {
+        background-color:white;
+        margin: 0 auto;
+        border: 1px solid orange;
+        padding:40px 60px; 
+        text-align: center; 
+        z-index: 3;
+    }
+</style>
+
+<body>
+    <div class="circle" id ="circle">
+
+    </div> 
+    <div class="circle2">
+
+    </div>
+    <div class="circle3">
+
+    </div>
+    <div class="circle4">
+    </div> 
+
+    <div class="centerbox">
+        <h1>새봄: </h1>
+        <p>새를 그리고 봄을 보다.</p>
+    </div>
+</body>
+
+</html>

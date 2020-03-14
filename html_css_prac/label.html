@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>라벨폼</title>
+</head>
+<body>
+    <h1>label요소</h1>
+    <form action = "join.php" method="post">
+        <fieldset>
+            <legend>회원가입</legend>
+            <table border="1" width="100%">
+                <caption>회원가입 서식 작성</caption>
+
+                <colgroup>
+                    <col width = "30%">
+                    <col widht = "70%">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row"><label for ="name">이름</label></th>
+                        <td><input type="text" id="name"/></td>
+                    </tr>
+                    <!-- 라벨포네임과 id를 같이해줘야 탭했을때 자동넘어간다-->
+
+                    <tr>
+                        <th scope="row"><label for ="id">아이디</label></th>
+                        <td><input type="text" id="id"/></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for ="pw">비밀번호</label></th>
+                        <td><input type="password"></td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"><label for="r_pw"></label>비밀번호확인</th>
+                        <td><input type="password" id="r_pw"></td>
+                    </tr>
+                    <tr>
+                        <th scope = "row"><label for = "jump_num">주민번호</label></th>
+                        <td><input type="text" id="jump_num" title = "주민번호 앞6자리">-<input type="text" title = "주민번호 뒤 7자리"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><input type = "submit" value="전송"/><input type="reset" value="취소"></p>
+        </fieldset>
+
+    </form>
+    
+</body>
+</html>

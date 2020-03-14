@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    /*nav태그를 이용해 네비게이션바 생성 그리고  "로그인", "메뉴1", 메뉴2"를 만들고 그걸 클릭했을 때 
+    해당 이름이 출력되는 html과 js를 작성하시오. 단 네비게이션 바는 스크롤 했을 때 상단위에 고정되어야 함.  또한 "이벤트 위임"으로 작성해야 함. 
+    */
+    
+    const write=(event)=>{
+
+        document.getElementById("memo").innerHTML = event.target.value;
+    }
+    const event=()=>{
+
+        let add = document.getElementById("fix");
+        add.addEventListener("click",write)
+        
+    }
+    window.onload = () =>{
+        event();
+    }
+
+
+    </script>
+    <style>
+        #fix{
+            display:fixed;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <nav id = "fix">
+                <input type="button" id = "login" name="로그인" value="로그인">
+                <input type="button" id = "menu1" name="메뉴1"value="메뉴1">
+                <input type="button" id = "menu2" name="메뉴2"value="메뉴2">
+            </nav>
+
+        </header>
+        <div id = "memo">
+
+        </div>
+
+    </div>
+</body>
+</html> 

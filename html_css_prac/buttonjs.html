@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Javascript Output</h1>
+    <p id="text">아래 버튼을 누르면 내요이 바뀝니다.</p>
+    <button onclick="change()"> click! </button>
+    <script>
+      let change =()=>{
+          let str = document.getElementById("text");
+          str.innerHTML="짠 바뀌었습니다"
+      }
+    </script>
+</body>
+</html>

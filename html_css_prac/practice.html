@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    ul,
+    li,
+    ol {
+        list-style: none;
+    }
+    h1{font-size:1.8em;}
+    h2,h3,h4,h5,h6,p{
+        margin:10px 5px;
+    }
+
+    body {
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+        color: #58666e;
+        background-color: #f0f3f4;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    header {
+        background-color: #fff;
+        width: 100%;
+        height: 60px;
+        z-index: 2000;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05);
+        position:fixed;
+        top:0;
+    }
+
+    nav {
+        float: right;
+    }
+    #wrap{
+        margin-top:60px;
+        width:100%;
+    }
+    .logo {
+        display: inline-block;
+        height: 36px;
+        margin: 12px 0 12px 25px;
+    }
+
+    .logo>img {
+        height: 36px;
+    }
+    .nav-items{
+        margin-right:20px;
+    }
+    .nav-items>li {
+        display: inline-block;
+    }
+
+    .nav-items>li>a {
+        line-height: 60px;
+        padding: 0 30px;
+        color: rgba(0, 0, 0, 0.4)
+    }
+
+    .nav-items > li > a:hover {
+        color: rgba(0, 0, 0, 0.9)
+    }
+    #content-wrap:after{
+        content:"";
+        clear:both;
+        display:block;
+    }
+    aside{
+        width:200px;
+        position:fixed;
+        top:60px;
+        bottom:0;
+        padding-top:25px;
+
+        
+    }
+    aside > ul{
+        width:200px;
+    }
+    aside> ul>li>a{
+        display:block;
+        color:#fff;
+        padding:10px 0 10px 20px;
+    }
+    aside > ul > li > a.active{
+        background-color:#4CAF50;
+    }
+
+    aside > ul > li > a:hover:not(.active){
+        background-color:#555;
+    }
+
+    aside > h1{
+        padding:20px 0 20px 20px;
+        color:#fff;
+    }
+
+    section{
+        float:right;
+        margin-left:200px;
+    }
+    article{
+        background-color:#fff;
+        padding:25px;
+        margin:10px;
+    }
+
+    footer{
+        position:absolute;
+        width:100%;
+        height:60px;
+        line-height:60px;
+        padding: 0 25px;
+        color:#8a8c8f;
+        border-top:1px solid black;
+        background-color:#f2f2f2;
+    }
+
+    section{
+        float:right;
+        margin-left:200px;
+    }
+    article{
+        margin:10px;
+        padding:25px;
+        background-color:#fff;
+    }
+    .navicon{
+        cursor:pointer;
+        height:60px;
+        padding:28px 15px;
+        position:absolute;
+        top:0; right:0;
+
+        -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+    }
+    .navicon-bar{
+        width:20px;
+        height:3px;
+        position:relative;
+        background-color:#333;
+        display:block;
+        transition:all .2s ease-out;
+    }
+
+    .navicon-bar::before,
+    .navicon-bar::after{
+        position:absolute;
+        background-color:#333;
+        height:100%;
+        width:100%;
+        display:block;
+        content : "";
+    }
+
+    .navicon-bar::before{
+        top:-7px;
+    }
+    .navicon-bar::after{
+        top:7px;
+    }
+
+    .nav-toggle:chekced ~ .navicon > .navicon-bar{
+        background:transparent;
+    }
+    .nav-toggle:checked ~ .navicon > .navicon-bar::before{
+        transform:rotate(45deg);
+        top:0;
+    }
+    .nav-toggle:checked ~ .navicon > .nav-bar::after{
+        transform:rotate(-45deg);
+        top:0;
+    }
+    .nav-toggle{display:none;}
+    .navicon{
+        display:none;
+    }
+@media screen and (max-width:800px){
+
+    header{
+        height:120px;
+        text-align:center;
+    }
+
+    #wrap{
+        margin-top:120px;
+    }
+    aside{
+        top:120px;
+    }
+    nav {
+        float:none;
+    }
+}
+@media screen and (max-width:600px){
+    header{height:60px;}
+   .navicon{
+       display:block;
+   }
+   .nav-items{
+       display:none;
+   }
+   #wrap{
+       margin-top:60px;
+   }
+   aside{
+       top:60px;
+   }
+   .nav-toggle:checked ~ .nav-items{
+       display:block;
+       width:100%;
+       background-color:#fff;
+       box-shadow:0 2px 2px rgba(0, 0, 0, 0.05)
+   }
+   .nav-items > li{
+       display:block;
+   }
+   .nav-items > li >a {
+       line-height:50px;
+   }
+}
+
+
+</style>
+
+<body>
+    <div id="wrap">
+        <header>
+            <a class="logo" href="#"><img src="https://poiemaweb.com/img/logo.png"></a>
+            <nav>
+                <input class="nav-toggle" id="nav-toggle" type="checkbox">
+                <label class="navicon" for="nav-toggle"><span class="navicon-bar"></span></label>
+
+                <ul class="nav-items">
+                    <li><a href="#" >Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id = "content-wrap">
+            <aside>
+                <h1>Aside</h1>
+                <ul>
+                    <li><a href="#" class="active">London</a></li>
+                    <li><a href="#">London</a></li>
+                    <li><a  href="#">London</a></li>
+                    <li><a href="#">London</a></li>
+                </ul>
+            </aside>
+            <section>
+                <article id="london">
+                    <h1>London</h1>
+                    <p>콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.</p>
+                </article>
+                <article id="london">
+                    <h1>London</h1>
+                    <p>콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.</p>
+                </article>
+                <article id="london">
+                    <h1>London</h1>
+                    <p>콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.</p>
+                </article>
+                <article id="london">
+                    <h1>London</h1>
+                    <p>콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.</p>
+                </article>
+                <article id="london">
+                    <h1>London</h1>
+                    <p>콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.</p>
+                </article>
+                <article id="london">
+                    <h1>London</h1>
+                    <p>콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.</p>
+                </article>
+                <article id="london">
+                    <h1>London</h1>
+                    <p>콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+                        콘텐츠의 영역을 Section, 콘텐츠에 대한 Navigation item이나 부가 정보 영역을 Aside라 한다. Section 영역은 다시 article 영역으로 구분할
+                        수 있다.
+
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.
+                        이 두개의 영역은 float 프로퍼티를 사용하여 수평 정렬하는 것이 일반적이다.
+
+                        header 요소 뒤에 aside, section, article을 포함하는 content-wrap 요소를 정의한다.</p>
+                </article>
+
+            </section>
+        </div>
+        <footer> copyright 새봄</footer>
+    </div>
+</body>
+
+</html>
