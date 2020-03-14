@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 50px;
+            color: black;
+        }
+
+        .wrap {
+            width: 100%
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh
+        }
+
+        .trans {
+            position: absolute;
+            top: 45%;
+            left: 45%;
+        }
+
+        .box {
+
+            position: absolute;
+            z-index:2;
+            width:400px;
+            height:80px;
+            background-color: #ffffff;
+            top: 50%;
+            left: 41%;
+            animation-name: move;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes move {
+            0% {
+                left: 41%;
+
+            } 
+            100% {
+                left: 65%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="box"></div>
+            <p class="trans"> 디자이너 이새봄 </p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
