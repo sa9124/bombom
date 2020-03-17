@@ -16,6 +16,17 @@
    
 }
 
+@media screen and (min-width: 1440px) {
+    .subject{
+        margin: 0 auto !important; 
+    }
+    .contents{
+        margin-top: 1.1rem !important; 
+    }
+    .box{
+        padding: 3% 2% !important;
+    } 
+  } 
 
 /*배경*/
 body {
@@ -110,8 +121,7 @@ body {
 .section2 {
     position: relative;
     float: right;
-    width: 57%;
-    height:100vh;
+    width: 57%; 
     margin-right: 8%;
     margin-top:6%;
 
@@ -119,11 +129,9 @@ body {
 
 .box{
     background-color: #FFFFFF;
-    border-radius: 20px;
+    border-radius: 1.2rem;
     padding: 4% 2%;
-    z-index: 9999;
-    height:70%;
-
+    z-index: 9999;   
 }
 
 
@@ -137,14 +145,13 @@ body {
 .subject {
     display: flex;
     align-items: center;
-    width: 100%;
-    height:4%;
+    width: 100%; 
     border-radius: 1.2rem;
     margin-top: 2.688rem;
     color: white;
     background-color: #95D354;
     font-size: 25px;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
 }
 
 
@@ -158,9 +165,8 @@ body {
 .contents {
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 5%;
-    font-size: 30px;
+    width: 100%; 
+    font-size: 2rem;
     color: black;
     margin-top: 1.4rem;
     background-color: #F6F5FF;
