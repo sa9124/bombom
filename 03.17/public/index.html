@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>  
+    const getAjax = () =>{
+        const httpRequest = new XMLHttpRequest();
+        console.log(httpRequest)   
+        httpRequest.open("GET", "https://lucidcode.herokuapp.com/contest/1182", true);
+        httpRequest.send(); 
+        httpRequest.onreadystatechange = function(){ 
+            if(this.readyState == 4 && this.status == 200){ 
+                document.getElementById("app").innerHTML = this.responseText;
+            } 
+        }  
+    }     
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        데이터를 받기전
+    </div>
+    <button onclick="getAjax()">데이터를 받아라!</button>
+</body>
+</html>
