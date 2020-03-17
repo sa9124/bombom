@@ -4,7 +4,7 @@ new Scene({
       scaleX: [0, 1],
     },
     options: {
-      duration: 1,
+      duration: 1,s
       delay: i * 0.2,
     },
   }),
