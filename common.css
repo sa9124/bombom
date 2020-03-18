@@ -1,4 +1,5 @@
 
+
 /*font*/
 
 .kor{
@@ -60,6 +61,7 @@ body {
     width: 20%;
     float: left;
     margin: 11% 0% 0 8%;
+    
 }
 
 .section1:after {
@@ -96,9 +98,9 @@ body {
 }
 
 .todayweather {
-    text-align: justify;
-    line-height:2.2rem;
-    font-size: 1.5rem;
+    text-align: left;
+    line-height:2rem;
+    font-size: 1.3rem;
     letter-spacing: -0.1rem;
     color: #FFFFFF;
 }
@@ -108,28 +110,27 @@ body {
 /*오른쪽 Table 섹션*/
 
 .section2 {
-    position: relative;
-    float: right;
-    width: 57%;
+    float:right;
+    width: 58%;
     height:100vh;
-    margin-right: 8%;
-    margin-top:6%;
-
+    padding: 6% 8% 6% 0%;
+    
 }
 
 .box{
     background-color: #FFFFFF;
-    border-radius: 20px;
-    padding: 4% 2%;
+    border-radius: 1.2rem;
+    padding: 5% 3%;
+    height:65%;
+    vertical-align: middle;
     z-index: 9999;
-    height:70%;
 
 }
 
-
 .logo {
-    width: 28.75em;
-    height: 7.75em;
+   
+    width: 20em;
+    height: 5.5em;
     background: transparent url('logo.png') 0% 0% no-repeat padding-box;
 }
 
@@ -138,13 +139,13 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    height:4%;
     border-radius: 1.2rem;
-    margin-top: 2.688rem;
+    margin-top: 4%;
     color: white;
     background-color: #95D354;
-    font-size: 25px;
-    padding: 1rem 0;
+    font-size: 1.75em;
+    padding: 0.5rem 0;
+    height:7%;
 }
 
 
@@ -159,13 +160,13 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 5%;
-    font-size: 30px;
+    font-size: 1.5rem;
     color: black;
-    margin-top: 1.4rem;
+    margin-top: 2%;
     background-color: #F6F5FF;
     border-radius: 1.2rem;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    height:8%;
 }
 
 .contents li {
